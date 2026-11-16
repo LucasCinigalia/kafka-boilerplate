@@ -49,4 +49,4 @@ Variáveis opcionais (ambiente ou arquivo `.env` em `infra/compose/`):
 ## Como foi testado
 
 - Manualmente: `docker compose up -d`, o Kafka fica `healthy` e a Kafka UI mostra o cluster `local` como online, com 1 broker e controller KRaft.
-- Automaticamente: [`KafkaEnvironmentSmokeTest`](../../kafka-core/src/test/java/io/github/lucascinigalia/kafkaboilerplate/core/KafkaEnvironmentSmokeTest.java) sobe um Kafka real com Testcontainers, cria um tópico com 3 partições e confere o resultado.
+- Automaticamente: [`KafkaEnvironmentSmokeTest`](../../kafka-core/src/test/java/io/github/lucascinigalia/kafkaboilerplate/core/KafkaEnvironmentSmokeTest.java) sobe um Kafka real com Testcontainers e confere que o broker responde.

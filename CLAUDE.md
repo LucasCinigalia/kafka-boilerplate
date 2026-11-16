@@ -58,8 +58,8 @@ Os módulos e pastas são criados na etapa em que passam a ser usados.
 
 ### O que o kafka-core oferece
 
-- **Envelope de evento padrão:** `eventId`, `type`, `version`, `occurredAt`, `correlationId`, `causationId`, `source` e `payload`.
-- **Porta de publicação:** uma interface `EventPublisher` que o código de negócio usa sem conhecer Kafka. A implementação Kafka fica no `kafka-core`.
+- **Envelope de evento padrão:** `eventId`, `type`, `version`, `occurredAt`, `correlationId`, `causationId`, `source` e `payload`. Vai inteiro em JSON no valor, com os metadados repetidos nos headers (ADR 0002).
+- **Porta de publicação:** uma interface `EventPublisher` que o código de negócio usa sem conhecer Kafka. A implementação Kafka fica no `kafka-core`. O tópico é resolvido pelo tipo do evento (ADR 0003).
 - **Producer com defaults seguros:** idempotência ligada, `acks=all`, compressão e batching configuráveis.
 - **Consumer com tratamento de erro pronto:** `ErrorHandlingDeserializer`, `DefaultErrorHandler` com backoff exponencial, exceções não-retentáveis configuráveis e envio para DLT.
 - **Consumo idempotente opcional:** interface de deduplicação por `eventId`, com implementação em memória e em banco.
@@ -163,7 +163,7 @@ Cada arquivo em `docs/features/` deve ter:
 ## Status
 
 - [x] Etapa 0: Estrutura e ambiente
-- [ ] Etapa 1: Fundamentos e producer
+- [x] Etapa 1: Fundamentos e producer
 - [ ] Etapa 2: Consumer
 - [ ] Etapa 3: Tratamento de erros
 - [ ] Etapa 4: Confiabilidade
@@ -175,4 +175,4 @@ Cada arquivo em `docs/features/` deve ter:
 - [ ] Etapa 10: CI/CD
 - [ ] Etapa 11: Segurança (opcional)
 
-**Próximo passo:** começar a Etapa 1 (fundamentos e producer).
+**Próximo passo:** começar a Etapa 2 (consumer).
