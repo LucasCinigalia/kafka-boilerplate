@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: producer-app
+
+server:
+  port: ${SERVER_PORT:8081}
+
+boilerplate:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    source: ${spring.application.name}
+    topics:
+      orders:
+        name: orders.v1
+        partitions: 3
+        # 1 só funciona no ambiente local, que tem um broker. Em produção use 3.
+        replicas: ${KAFKA_TOPIC_REPLICAS:1}
+        retention: 7d
+        event-types:
+          - OrderCreated
+
+logging:
+  structured:
+    format:
+      # Logs em JSON, para os campos correlationId, eventId, topic, partition e offset aparecerem.
+      console: ecs
