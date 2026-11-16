@@ -157,7 +157,8 @@ Cada arquivo em `docs/features/` deve ter:
 - **Explique as decisões.** Quando houver escolha de design, apresente as opções e registre a decisão em `docs/adr/`.
 - **Testes fazem parte da etapa.** Rode a suíte antes de dizer que terminou.
 - **Ao fim de cada etapa:** resuma o que foi feito, o que aprendi e o que vem a seguir, e marque a etapa como concluída neste arquivo.
-- **Commits e push só com o meu usuário.** Autor `Lucas Cinigalia Francisco`, sem linhas de coautoria (`Co-Authored-By`) nem qualquer menção a ferramentas de IA nas mensagens.
+- **Commits só com o meu usuário.** Autor `Lucas Cinigalia Francisco`, sem linhas de coautoria (`Co-Authored-By`) nem qualquer menção a ferramentas de IA em commits, títulos ou descrições de pull request.
+- **Nunca fazer push direto na `main`.** Cada entrega vai para uma branch e vira um pull request. Eu faço o merge pelo site com "Squash and merge", para que o commit da `main` seja criado pelo GitHub, comigo como autor e marcado como Verified. O título do pull request vira a mensagem desse commit, então deve seguir o padrão dos commits (em português, por exemplo `feat: ...`).
 
 ## Status
 
